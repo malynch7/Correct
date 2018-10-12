@@ -41,7 +41,7 @@
             function __construct($face,$match){
                 $this->face = $face;
                 $this->match = $match;
-                $this->flipped = 0;
+                $this->flipped = 1;
                 $this->matched = 0;
             }
             function toString(){
@@ -60,15 +60,16 @@
                 }else{
                     $letter = "B";
                 }
-                array_push($deck, new Card("../images/GameDesign/card" . ($i / 2) . $letter . ".png", ($i / 2)));
+                array_push($deck, new Card("../images/GameDesign/card" . intdiv(($i *4) ,2) . $letter .
+                    ".png", intdiv($i , 2)));
             }
-            shuffle($deck);
+            //shuffle($deck);
 
             //present new game button
             echo "<tr><td>
                     <br><br>
                     <form class=\"center\"method=\"post\" action=\"" . htmlspecialchars($_SERVER[PHP_SELF]) . "\">
-                        <input type=\"hidden\" name=\"cards\" value=\"" .serialize($deck) . "\">
+                        <input type=\"hidden\" name=\"cards\" value=\"" . htmlspecialchars(serialize($deck)) . "\">
                         <input type=\"hidden\" name=\"start\" value=\"true\">
                         <input type=\"submit\" value=\"Play Now!\">
                     </form>
@@ -84,10 +85,10 @@
                     <br><br>
                         <table class='center'>";
             for($i = 0; $i < $gridSize; $i++){
-                echo "<tr>";
+                echo "<tr class='center'>";
                 for($j = 0; $j < $gridSize; $j++){
-                    if($deck[$i + $j]->flipped == 1){
-                        echo "<td><img src='" . $deck[$i + $j]->face ."' class='center'></td>";
+                    if($deck[($i + $j)]->flipped == 1){
+                        echo "<td><img src='" . $deck[(($i * 4) + $j)]->face ."' class='center'></td>";
                     }else{
                         echo "<td><img src='../images/GameDesign/backside_of_card.png' class='center'></td>";
                     }
