@@ -1,0 +1,242 @@
+<html>
+
+<head>
+    <title>Card Set Form</title>
+    <style>
+        .error {
+            color: #FF0000;
+        }
+    </style>
+
+    <head>
+
+    <body>
+        <form action="play.php" method="post">
+            <table style="width:100%">
+                <tr>
+                    <th>Questions 1-16</th>
+                    <th>Answers 1-16</th>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="card1q" rows="10" cols="25" required>
+
+        </textarea>
+                    </td>
+                    <td>
+                        <textarea name="card1a" rows="10" cols="25" required>
+
+                </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="card2q" rows="10" cols="25" required>
+
+        </textarea>
+                    </td>
+                    <td>
+                        <textarea name="card2a" rows="10" cols="25" required>
+
+                </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="card3q" rows="10" cols="25" required>
+
+        </textarea>
+                    </td>
+                    <td>
+                        <textarea name="card3a" rows="10" cols="25" required>
+
+                </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="card4q" rows="10" cols="25" required>
+
+        </textarea>
+                    </td>
+                    <td>
+                        <textarea name="card4a" rows="10" cols="25" required>
+
+                </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="card5q" rows="10" cols="25" required>
+
+        </textarea>
+                    </td>
+                    <td>
+                        <textarea name="card5a" rows="10" cols="25" required>
+
+                </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="card6q" rows="10" cols="25" required>
+
+        </textarea>
+                    </td>
+                    <td>
+                        <textarea name="card6a" rows="10" cols="25" required>
+
+                </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="card7q" rows="10" cols="25" required>
+
+        </textarea>
+                    </td>
+                    <td>
+                        <textarea name="card7a" rows="10" cols="25" required>
+
+                </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="card8q" rows="10" cols="25" required>
+
+        </textarea>
+                    </td>
+                    <td>
+                        <textarea name="card8a" rows="10" cols="25" required>
+
+                </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="card9q" rows="10" cols="25" required>
+
+        </textarea>
+                    </td>
+                    <td>
+                        <textarea name="card9a" rows="10" cols="25" required>
+
+                </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="card10q" rows="10" cols="25" required>
+
+        </textarea>
+                    </td>
+                    <td>
+                        <textarea name="card10a" rows="10" cols="25" required>
+
+                </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="card11q" rows="10" cols="25" required>
+
+        </textarea>
+                    </td>
+                    <td>
+                        <textarea name="card11a" rows="10" cols="25" required>
+
+                </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="card12q" rows="10" cols="25" required>
+
+        </textarea>
+                    </td>
+                    <td>
+                        <textarea name="card12a" rows="10" cols="25" required>
+
+                </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="card13q" rows="10" cols="25" required>
+
+        </textarea>
+                    </td>
+                    <td>
+                        <textarea name="card13a" rows="10" cols="25" required>
+
+                </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="card14q" rows="10" cols="25" required>
+
+                </textarea>
+                    </td>
+                    <td>
+                        <textarea name="card14a" rows="10" cols="25" required>
+
+                        </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="card15q" rows="10" cols="25" required>
+
+        </textarea>
+                    </td>
+                    <td>
+                        <textarea name="card15a" rows="10" cols="25" required>
+
+                </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="card16q" rows="10" cols="25" required>
+
+        </textarea>
+                    </td>
+                    <td>
+                        <textarea name="card16a" rows="10" cols="25" required>
+
+                </textarea>
+                    </td>
+                </tr>
+                </table>
+                <input type="submit" value="Sign Up"> 
+                <input type="reset">
+                </form>
+
+                <!--
+            <?php
+                $card1q = $card2q = $card3q = $card4q = $card5q = $card6q = $card7q = $card8q = "";
+                $card9q = $card10q = $card11q = $card12q = $card13q = $card14q = $card15q = $card16q = "";
+                $card1a = $card2a = $card3a = $card4a = $card5a = $card6a = $card7a = $card8a = "";
+                $card9a = $card10a = $card11a = $card12a = $card13a = $card14a = $card15a = $card16a = "";
+
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    if (empty($_POST["card1q"])) {
+                      $card1qerror = "Card 1 Question is required";
+                    } else {
+                      $card1q = test_input($_POST["card1q"]);
+            ?>
+
+        <p><span class="error">* required field</span></p>
+        card1q: <textarea name="Card 1 Question" rows="5" cols="40"><?php echo $comment;?>
+        </textarea>
+    <?php
+        echo "<h2>Your Input:</h2>";
+        echo $card1q;
+        echo "<br>";
+    ?>
+    -->
+    </body>
+
+</html>
