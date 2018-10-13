@@ -1,0 +1,17 @@
+.column1 {
+    padding-top: 60px;
+    float: left;
+    width: 60%;
+    text-align: right;
+}
+.column2 {
+    padding-top: 60px;
+    float: left;
+    width: 20%;
+    text-align: center;
+
+
+}
+#cardGrid {
+    padding-left: 20%;
+}

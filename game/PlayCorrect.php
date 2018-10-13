@@ -10,7 +10,7 @@
 
 <body>
 
-<table id="mainframe">
+<td id="mainframe">
     <tr>
         <td>
             <ul>
@@ -100,6 +100,8 @@
                 }
 
             }
+
+            //Calculate score
             $score = 0;
             foreach($deck as $card){
                 if($card->matched == true){
@@ -108,9 +110,9 @@
             }
 
             //display cards
-            echo "<tr><td>
-                    <br><br>
-                        <table class='center'>";
+            echo "<tr><td><div class='row'><div class='column1'>
+                    <br>
+                        <table id='cardGrid'>";
             for($i = 0; $i < $gridHeight; $i++){
                 echo "<tr class='center'>";
                 for($j = 0; $j < $gridWidth; $j++){
@@ -129,45 +131,47 @@
                 }
                 echo"</tr>";
             }
-            echo "</table></td>";
+
+            //display score
+            echo "</table></div><div class='column2'><br><p class='center'>Score: $score/$numberOfCards</p>";
 
            //win condition
             if($score == $numberOfCards){
-                echo "<td><br><br>
+                echo "<br><br>
                       <p class='center'>You Have Won!</p>
                       <br>
-                      <form class=\"center\"method=\"post\" action=\"" . htmlspecialchars($_SERVER[PHP_SELF]) . "\">
+                      <form class=\"center\" method=\"post\" action=\"" . htmlspecialchars($_SERVER[PHP_SELF]) . "\">
                                 <input type='submit' value='Play Again'>
-                             </form></td>";
+                             </form>";
             //Match made
             }elseif($matchMade == 1){
-                echo "<td><br><br>
+                echo "<br><p>$score</p><br>
                       <p class='center'>You Found a Match!</p>
                       <br>
-                      <form class=\"center\"method=\"post\" action=\"" . htmlspecialchars($_SERVER[PHP_SELF]) . "\">
+                      <form class='center' method=\"post\" action=\"" . htmlspecialchars($_SERVER[PHP_SELF]) . "\">
                                 <input type=\"hidden\" name=\"cards\" value=\"" . htmlspecialchars(serialize($deck)) . "\">
                                 <input type='hidden' name='firstFlipped' value='-1'>
                                 <input type='hidden' name='cardFlipped' value='-1'>
                                 <input type='submit' value='Continue'>
-                             </form></td>";
+                             </form>";
 
             //match failed
             }elseif($matchMade == 2){
                 $deck[$_REQUEST["cardFlipped"]]->flipped = false;
                 $deck[$firstFlipped]->flipped = false;
-                echo "<td><br><br>
+                echo "<br><br>
                       <p class='center'>These Do Not Match</p>
                       <br>
-                      <form class=\"center\"method=\"post\" action=\"" . htmlspecialchars($_SERVER[PHP_SELF]) . "\">
+                      <form class='center' method=\"post\" action=\"" . htmlspecialchars($_SERVER[PHP_SELF]) . "\">
                                 <input type=\"hidden\" name=\"cards\" value=\"" . htmlspecialchars(serialize($deck)) . "\">
                                 <input type='hidden' name='firstFlipped' value='-1'>
                                 <input type='hidden' name='cardFlipped' value='-1'>
                                 <input type='submit' value='Continue'>
-                             </form></td>";
+                             </form>";
             }
         }
     ?>
-    </tr></table>
+    </div></div> </td></tr></table>
 
 
 
