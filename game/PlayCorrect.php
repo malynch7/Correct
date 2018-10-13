@@ -14,7 +14,7 @@
     <tr>
         <td>
             <ul>
-                <li><a class="active" href="../Correct.html">Home</a></li>
+                <li><a href="../Correct.html">Home</a></li>
                 <li><a class="active" href="">Play</a></li>
                 <li><a href="../howtoplay.html">How to play</a></li>
                 <li><a href="../youtube.html">YouTube Video</a>
@@ -147,7 +147,7 @@
 
             //display successful match
             }elseif($matchMade == 1){
-                echo "<br><p>$score</p><br>
+                echo "<br><br>
                       <p class='center'>You Found a Match!</p>
                       <br>
                       <form class='center' method=\"post\" action=\"" . htmlspecialchars($_SERVER[PHP_SELF]) . "\">
