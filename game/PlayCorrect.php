@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>How to Play</title>
+    <title>Play Correct!</title>
     <link rel="stylesheet" type="text/css" href="PlayCorrect.css">
     <link rel="stylesheet" type="text/css" href="../stylesheetproject1.css">
 </head>
 
 <body>
 
-<td id="mainframe">
+<table id="mainframe">
     <tr>
         <td>
             <ul>
@@ -19,7 +19,7 @@
                 <li><a href="../howtoplay.html">How to play</a></li>
                 <li><a href="../youtube.html">YouTube Video</a>
                 <li><a href="../aboutcontributors.html">About Contributors</a></li>
-                <li class="liclass"> <a href="https://github.com/malynch7/Web-Programming-Project-1">GitHub Repository</a></li>
+                <li class="liclass"> <a href="https://github.com/malynch7/Web-Programming-Project-2">GitHub Repository</a></li>
             </ul>
         </td>
     </tr>
@@ -67,18 +67,21 @@
             shuffle($deck);
 
             //present new game button
-            echo "<tr><td>
-                    <br><br>
-                    <form class=\"center\"method=\"post\" action=\"" . htmlspecialchars($_SERVER[PHP_SELF]) . "\">
-                        <input type=\"hidden\" name=\"cards\" value=\"" . htmlspecialchars(serialize($deck)) . "\">
-                        <input type='hidden' name='firstFlipped' value='-1'>
-                        <input type='hidden' name='cardFlipped' value='-1'>
-                        <input type=\"submit\" value=\"Play Now!\">
-                    </form>
-                   </td></tr>
+            echo "
+                <tr>
+                    <td>
+                        <br><br>
+                        <form class=\"center\"method=\"post\" action=\"" . htmlspecialchars($_SERVER[PHP_SELF]) . "\">
+                            <input type=\"hidden\" name=\"cards\" value=\"" . htmlspecialchars(serialize($deck)) . "\">
+                            <input type='hidden' name='firstFlipped' value='-1'>
+                            <input type='hidden' name='cardFlipped' value='-1'>
+                            <input type=\"submit\" value=\"Play Now!\">
+                        </form>
+                   </td>
+                </tr>
                 ";
-
         }else{
+
             //gameplay loop
 
             $deck = unserialize($_REQUEST["cards"]);
@@ -111,68 +114,89 @@
             }
 
             //display cards
-            echo "<tr><td><div class='row'><div class='column1'>
-                    <br>
-                        <table id='cardGrid'>";
+            echo "
+                <tr>
+                    <td>
+                        <div class='row'>
+                            <div class='column1'>
+                            <br>
+                            <table id='cardGrid'>";
             for($i = 0; $i < $gridHeight; $i++){
-                echo "<tr class='center'>";
+                echo "        <tr class='center'>";
                 for($j = 0; $j < $gridWidth; $j++){
                     if($deck[($i * $gridWidth) + $j]->flipped == true){
-                        echo "<td><img src='" . $deck[(($i * $gridWidth) + $j)]->face ."' class='center'></td>";
+                        echo "    <td><img src='" . $deck[(($i * $gridWidth) + $j)]->face ."' class='center'></td>";
                     }elseif($matchMade == 0){
-                        echo "<td><form class=\"center\"method=\"post\" action=\"" . htmlspecialchars($_SERVER[PHP_SELF]) . "\">
-                                <input type=\"hidden\" name=\"cards\" value=\"" . htmlspecialchars(serialize($deck)) . "\">
-                                <input type='hidden' name='cardFlipped' value='" . (($i * $gridWidth) + $j) . "'>
-                                <input type='hidden' name='firstFlipped' value='" . $firstFlipped . "'>
-                                <input type='image' alt=\"submit\" src='../images/GameDesign/backside_of_card.png'>
-                             </form></td>";
+                        echo "    <td><form class=\"center\"method=\"post\" action=\"" .
+                                        htmlspecialchars($_SERVER[PHP_SELF]) . "\">
+                                    <input type=\"hidden\" name=\"cards\" value=\"" . htmlspecialchars(serialize($deck))
+                                        . "\">
+                                    <input type='hidden' name='cardFlipped' value='" . (($i * $gridWidth) + $j) . "'>
+                                    <input type='hidden' name='firstFlipped' value='" . $firstFlipped . "'>
+                                    <input type='image' alt=\"submit\" src='../images/GameDesign/backside_of_card.png'>
+                                  </form></td>";
                     }else{
-                        echo "<td><img src='../images/GameDesign/backside_of_card.png' class='center'></td>";
+                        echo "    <td><img src='../images/GameDesign/backside_of_card.png' class='center'></td>";
                     }
                 }
-                echo"</tr>";
+                echo"        </tr>";
             }
 
             //display score
-            echo "</table></div><div class='column2'><br><p class='center'>Score: $score/$numberOfCards</p>";
+            echo "          </table>
+                                </div>
+                                <div class='column2'>
+                                    <br>
+                                    <p class='center'>Score: $score/$numberOfCards</p>";
 
            //win condition
             if($score == $numberOfCards){
-                echo "<br><br>
-                      <p class='center'>You Have Won!</p>
-                      <br>
-                      <form class=\"center\" method=\"post\" action=\"" . htmlspecialchars($_SERVER[PHP_SELF]) . "\">
-                                <input type='submit' value='Play Again'>
-                             </form>";
+                echo "               <br><br>
+                                     <p class='center'>You Have Won!</p>
+                                     <br>
+                                     <form class=\"center\" method=\"post\" action=\"" .
+                                        htmlspecialchars($_SERVER[PHP_SELF]) . "\">
+                                        <input type='submit' value='Play Again'>
+                                      </form>";
 
             //display successful match
             }elseif($matchMade == 1){
-                echo "<br><br>
-                      <p class='center'>You Found a Match!</p>
-                      <br>
-                      <form class='center' method=\"post\" action=\"" . htmlspecialchars($_SERVER[PHP_SELF]) . "\">
-                                <input type=\"hidden\" name=\"cards\" value=\"" . htmlspecialchars(serialize($deck)) . "\">
-                                <input type='hidden' name='firstFlipped' value='-1'>
-                                <input type='hidden' name='cardFlipped' value='-1'>
-                                <input type='submit' value='Continue'>
-                             </form>";
+                echo "              <br><br>
+                                    <p class='center'>You Found a Match!</p>
+                                    <br>
+                                    <form class='center' method=\"post\" action=\"" .
+                                        htmlspecialchars($_SERVER[PHP_SELF]) . "\">
+                                        <input type=\"hidden\" name=\"cards\" value=\"" .
+                                            htmlspecialchars(serialize($deck)) . "\">
+                                        <input type='hidden' name='firstFlipped' value='-1'>
+                                        <input type='hidden' name='cardFlipped' value='-1'>
+                                        <input type='submit' value='Continue'>
+                                    </form>";
 
             //display failed match
             }elseif($matchMade == 2){
                 $deck[$_REQUEST["cardFlipped"]]->flipped = false;
                 $deck[$firstFlipped]->flipped = false;
-                echo "<br><br>
-                      <p class='center'>These Do Not Match</p>
-                      <br>
-                      <form class='center' method=\"post\" action=\"" . htmlspecialchars($_SERVER[PHP_SELF]) . "\">
-                                <input type=\"hidden\" name=\"cards\" value=\"" . htmlspecialchars(serialize($deck)) . "\">
-                                <input type='hidden' name='firstFlipped' value='-1'>
-                                <input type='hidden' name='cardFlipped' value='-1'>
-                                <input type='submit' value='Continue'>
-                             </form>";
+                echo "              <br><br>
+                                    <p class='center'>These Do Not Match</p>
+                                    <br>
+                                    <form class='center' method=\"post\" action=\"" .
+                                        htmlspecialchars($_SERVER[PHP_SELF]) . "\">
+                                        <input type=\"hidden\" name=\"cards\" value=\"" .
+                                            htmlspecialchars(serialize($deck)) . "\">
+                                        <input type='hidden' name='firstFlipped' value='-1'>
+                                        <input type='hidden' name='cardFlipped' value='-1'>
+                                        <input type='submit' value='Continue'>
+                                    </form>";
             }
         }
     ?>
-    </div></div> </td></tr></table>
+                </div>
+            </div>
+        </table>
+    </tr>
+</table>
+
 </body>
+
 </html>
