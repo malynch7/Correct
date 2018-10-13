@@ -79,11 +79,12 @@
                 ";
 
         }else{
-
             //gameplay loop
+
             $deck = unserialize($_REQUEST["cards"]);
             $matchMade = 0;
             $firstFlipped = $_REQUEST["firstFlipped"];
+
             //check for match
             if($_REQUEST["cardFlipped"] != -1){
                 if($firstFlipped == -1){
@@ -143,7 +144,8 @@
                       <form class=\"center\" method=\"post\" action=\"" . htmlspecialchars($_SERVER[PHP_SELF]) . "\">
                                 <input type='submit' value='Play Again'>
                              </form>";
-            //Match made
+
+            //display successful match
             }elseif($matchMade == 1){
                 echo "<br><p>$score</p><br>
                       <p class='center'>You Found a Match!</p>
@@ -155,7 +157,7 @@
                                 <input type='submit' value='Continue'>
                              </form>";
 
-            //match failed
+            //display failed match
             }elseif($matchMade == 2){
                 $deck[$_REQUEST["cardFlipped"]]->flipped = false;
                 $deck[$firstFlipped]->flipped = false;
@@ -172,9 +174,5 @@
         }
     ?>
     </div></div> </td></tr></table>
-
-
-
 </body>
-
 </html>
