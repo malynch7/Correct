@@ -119,15 +119,14 @@
                     <td>
                         <div class='row'>
                             <div class='column1'>
-                            <br>
-                            <table id='cardGrid'>";
+                                <table id='cardGrid'>";
             for($i = 0; $i < $gridHeight; $i++){
-                echo "        <tr class='center'>";
+                echo "          <tr class='center'>";
                 for($j = 0; $j < $gridWidth; $j++){
                     if($deck[($i * $gridWidth) + $j]->flipped == true){
-                        echo "    <td><img src='" . $deck[(($i * $gridWidth) + $j)]->face ."' class='center'></td>";
+                        echo "    <td><img src='" . $deck[(($i * $gridWidth) + $j)]->face ."' class='card'></td>";
                     }elseif($matchMade == 0){
-                        echo "    <td><form class=\"center\"method=\"post\" action=\"" .
+                        echo "    <td><form class=\"card\"method=\"post\" action=\"" .
                                         htmlspecialchars($_SERVER[PHP_SELF]) . "\">
                                     <input type=\"hidden\" name=\"cards\" value=\"" . htmlspecialchars(serialize($deck))
                                         . "\">
@@ -136,7 +135,7 @@
                                     <input type='image' alt=\"submit\" src='../images/GameDesign/backside_of_card.png'>
                                   </form></td>";
                     }else{
-                        echo "    <td><img src='../images/GameDesign/backside_of_card.png' class='center'></td>";
+                        echo "    <td><img src='../images/GameDesign/backside_of_card.png' class='card'></td>";
                     }
                 }
                 echo"        </tr>";
@@ -147,7 +146,7 @@
                                 </div>
                                 <div class='column2'>
                                     <br>
-                                    <p class='center'>Score: $score/$numberOfCards</p>";
+                                    <h2 style='font-family: \"Courier New\"; color: #e84539;' class='center'>Score: $score/$numberOfCards</h2>";
 
            //win condition
             if($score == $numberOfCards){
@@ -188,6 +187,9 @@
                                         <input type='hidden' name='cardFlipped' value='-1'>
                                         <input type='submit' value='Continue'>
                                     </form>";
+            }else{
+                echo "              <br><br>
+                                    <p class='center'>Select A Card</p>";
             }
         }
     ?>
