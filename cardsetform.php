@@ -102,52 +102,40 @@
       <p><span class="error">* required field</span></p>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
-        Card1q: <input type="text" name="card1q" size="100">
-        <span class="error">* <?php echo $queErr;?></span>
+        Card1q: <input type="text" name="card1q" size="100" required>
         <br><br>
 
-        Card1a: <input type="text" name="card1a" size="100">
-        <span class="error">* <?php echo $ansErr;?></span>
+        Card1a: <input type="text" name="card1a" size="100" required>
         <br><br>
 
-        Card2q: <input type="text" name="card2q" size="100">
-        <span class="error">* <?php echo $queErr;?></span>
+        Card2q: <input type="text" name="card2q" size="100" required>
         <br><br>
 
-        Card2a: <input type="text" name="card2a" size="100">
-        <span class="error">* <?php echo $ansErr;?></span>
+        Card2a: <input type="text" name="card2a" size="100" required>
         <br><br>
 
-        Card3q: <input type="text" name="card3q" size="100">
-        <span class="error">* <?php echo $queErr;?></span>
+        Card3q: <input type="text" name="card3q" size="100" required>
         <br><br>
 
-        Card3a: <input type="text" name="card3a" size="100">
-        <span class="error">* <?php echo $ansErr;?></span>
+        Card3a: <input type="text" name="card3a" size="100" required>
         <br><br>
 
-        Card4q: <input type="text" name="card4q" size="100">
-        <span class="error">* <?php echo $queErr;?></span>
+        Card4q: <input type="text" name="card4q" size="100" required>
         <br><br>
 
-        Card4a: <input type="text" name="card4a" size="100">
-        <span class="error">* <?php echo $ansErr;?></span>
+        Card4a: <input type="text" name="card4a" size="100" required>
         <br><br>
 
-        Card5q: <input type="text" name="card5q" size="100">
-        <span class="error">* <?php echo $queErr;?></span>
+        Card5q: <input type="text" name="card5q" size="100" required>
         <br><br>
 
-        Card5a: <input type="text" name="card5a" size="100">
-        <span class="error">* <?php echo $ansErr;?></span>
+        Card5a: <input type="text" name="card5a" size="100" required>
         <br><br>
 
-        Card6q: <input type="text" name="card6q" size="100">
-        <span class="error">* <?php echo $queErr;?></span>
+        Card6q: <input type="text" name="card6q" size="100" required>
         <br><br>
 
-        Card6a: <input type="text" name="card6a" size="100">
-        <span class="error">* <?php echo $ansErr;?></span>
+        Card6a: <input type="text" name="card6a" size="100" required>
         <br><br>
             
             <input type="submit" name="submit" value="Submit"> 
