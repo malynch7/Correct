@@ -1,5 +1,5 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Card Set Form</title>
     <link rel="stylesheet" type="text/css" href="stylesheetproject1.css">
@@ -13,7 +13,7 @@
 
     <body>
         <h1>Make Your Own Custom Card Set</h1>
-        <form action="cardsetform.php" method="post">
+        <form action="/~rdholakia1/cardsetform.php" method="post">
             <table style="width:100%">
                 <tr>
                     <th>Questions 1-16</th>
@@ -282,30 +282,6 @@
             <input type="reset" value="Reset">
             <input type="submit" value="Skip">
         </form>
-
-        <!--
-            <?php
-                $card1q = $card2q = $card3q = $card4q = $card5q = $card6q = $card7q = $card8q = "";
-                $card9q = $card10q = $card11q = $card12q = $card13q = $card14q = $card15q = $card16q = "";
-                $card1a = $card2a = $card3a = $card4a = $card5a = $card6a = $card7a = $card8a = "";
-                $card9a = $card10a = $card11a = $card12a = $card13a = $card14a = $card15a = $card16a = "";
-
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    if (empty($_POST["card1q"])) {
-                      $card1qerror = "Card 1 Question is required";
-                    } else {
-                      $card1q = test_input($_POST["card1q"]);
-            ?>
-
-        <p><span class="error">* required field</span></p>
-        card1q: <textarea name="Card 1 Question" rows="5" cols="40"><?php echo $comment;?>
-        </textarea>
-    <?php
-        echo "<h2>Your Input:</h2>";
-        echo $card1q;
-        echo "<br>";
-    ?>
-    -->
     </body>
 
 </html>
