@@ -15,7 +15,7 @@
         <td>
             <ul>
                 <li><a href="../Correct.html">Home</a></li>
-                <li><a class="active" href="">Play</a></li>
+                <li><a class="active" href="game/PlayCorrect.php">Play</a></li>
                 <li><a href="../howtoplay.html">How to play</a></li>
                 <li><a href="../youtube.html">YouTube Video</a>
                 <li><a href="../aboutcontributors.html">About Contributors</a></li>
