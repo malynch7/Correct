@@ -1,0 +1,72 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-size:cover;
+    background-position: center;
+    font-family:  "Courier New";
+    background-color: lightgrey;
+}
+
+.CorrectLogin{
+    padding: 5px;
+    width: 320px;
+    height: 420px;
+    background: #000;
+    color:#fff;
+    top:50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+}
+.IconMain{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50%,-50px)
+}
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: right;
+    font-size: 18px;
+}
+.CorrectLogin p{
+    margin:0;
+    padding:0;
+    font-weight: bold;
+}
+.CorrectLogin input{
+    width:100%;
+    margin-bottom: 20px;
+}
+.CorrectLogin input[type="text"], input[type="password"]
+{
+    border:none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+.CorrectLogin input[type="submit"]
+{
+    border:none;
+    outline:none;
+    height:40px;
+    background:#800000;
+    color:#fff;
+    font-size:18px;
+}
+p.Usererror{
+    color:red;
+}
+
+
+
+
+
+
