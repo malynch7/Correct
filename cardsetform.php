@@ -13,7 +13,7 @@
 
     <body>
         <h1>Make Your Own Custom Card Set</h1>
-        <form action="cardsetform.html" method="post">
+        <form action="cardsetform.php" method="post">
             <table style="width:100%">
                 <tr>
                     <th>Questions 1-16</th>
