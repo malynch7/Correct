@@ -44,6 +44,11 @@
     width: 160px;
 }
 
+.uncard{
+    height: 160px;
+    width: 160px;
+}
+
 #cardGrid {
     padding-left: 10%;
     width: 680px;

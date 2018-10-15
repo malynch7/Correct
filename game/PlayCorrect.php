@@ -156,7 +156,7 @@
                             echo "    <td><img src='" . $deck[(($i * $gridWidth) + $j)]->face ."' class='card'></td>";
                         }
 
-                    // if 2 cards have not yet been selected
+                    // if match has not been attempted
                     }elseif($matchMade == 0){
 
                         //apply unflip animation to mismatches
@@ -198,28 +198,27 @@
 
                     //if match has been attempted, render cards unselectable
                     }else{
-                        echo "    <td><img src='../images/GameDesign/backside_of_card.png' class='card'></td>";
+                        echo "    <td><img src='../images/GameDesign/backside_of_card.png' class='uncard'></td>";
                     }
                 }
                 echo"        </tr>";
             }
 
-            //display time remaining
+            //display score
             echo "              </table>
                             </div>
                             <div class='column2'>
-                                <br><br>
-                                <h3 class='center'>Time Remaining: $timeRemaining s</h3>";
-
-            //display score
-            echo "
                                     <br>
                                     <h2 style='font-family: \"Courier New\"; color: #e84539;' class='center'>Score: $score/$numberOfCards</h2>";
+
+            //display time remaining
+            echo "                <br><br>
+                                <p class='center'>Time Remaining: $timeRemaining s</p>";
 
             //check timer
             if($timeRemaining <= 0){
                 echo "               <br><br>
-                                     <h3 class='center'>You Have Lost!</h3>
+                                     <h1 class='center'>Time's Up!</h1>
                                      <br>
                                      <form class=\"center\" method=\"post\" action=\"" .
                                          htmlspecialchars($_SERVER[PHP_SELF]) . "\">
@@ -229,7 +228,7 @@
             //check win condition
             }elseif($score == $numberOfCards){
                 echo "               <br><br>
-                                     <h3 class='center'>You Have Won!</h3>
+                                     <h1 class='center'>You Have Won!</h1>
                                      <br>
                                      <form class=\"center\" method=\"post\" action=\"" .
                                         htmlspecialchars($_SERVER[PHP_SELF]) . "\">
@@ -277,9 +276,10 @@
             }
         }
     ?>
-
-                </div>
-            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
         </table>
     </tr>
 </table>
