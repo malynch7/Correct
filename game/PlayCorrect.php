@@ -124,16 +124,59 @@
                 echo "          <tr class='center'>";
                 for($j = 0; $j < $gridWidth; $j++){
                     if($deck[($i * $gridWidth) + $j]->flipped == true){
-                        echo "    <td><img src='" . $deck[(($i * $gridWidth) + $j)]->face ."' class='card'></td>";
+
+                        //flip animation
+                        if((($i * $gridWidth) + $j) == $_REQUEST["cardFlipped"] ){
+                            echo "<td>
+                            <div class=\"flipContainer\">
+                                <div class=\"flipCard\">
+                                       <div class=\"flipFront\">
+                                            <img src='../images/GameDesign/backside_of_card.png' class='card'>
+                                        </div>
+                                        <div class=\"flipBack\">
+                                            <img src='" . $deck[(($i * $gridWidth) + $j)]->face ."' class='card'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>";
+                        }else{
+                            echo "    <td><img src='" . $deck[(($i * $gridWidth) + $j)]->face ."' class='card'></td>";
+                        }
+
                     }elseif($matchMade == 0){
-                        echo "    <td><form class=\"card\"method=\"post\" action=\"" .
-                                        htmlspecialchars($_SERVER[PHP_SELF]) . "\">
+
+                        //unflip mismatches
+                        if(isset($_REQUEST["flipBack1"]) && ($_REQUEST["flipBack1"] == (($i * $gridWidth) + $j) ||
+                                (($i * $gridWidth) + $j) == $_REQUEST["flipBack2"])){
+                            echo "<td>
+                            <div class=\"flipContainer\">
+                                <div class=\"flipCard\">
+                                       <div class=\"flipFront\">
+                                            <img src='" . $deck[(($i * $gridWidth) + $j)]->face ."' class='card'>
+                                        </div>
+                                        <div class=\"flipBack\">
+                                            <form class=\"card\"method=\"post\" action=\"" .
+                                                htmlspecialchars($_SERVER[PHP_SELF]) . "\">
+                                                <input type=\"hidden\" name=\"cards\" value=\"" . htmlspecialchars(serialize($deck))
+                                                 . "\">
+                                                 <input type='hidden' name='cardFlipped' value='" . (($i * $gridWidth) + $j) . "'>
+                                                <input type='hidden' name='firstFlipped' value='" . $firstFlipped . "'>
+                                                <input type='image' alt=\"submit\" src='../images/GameDesign/backside_of_card.png'>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>";
+                        }else{
+                            echo "<td><form class=\"card\"method=\"post\" action=\"" .
+                                htmlspecialchars($_SERVER[PHP_SELF]) . "\">
                                     <input type=\"hidden\" name=\"cards\" value=\"" . htmlspecialchars(serialize($deck))
-                                        . "\">
+                                    . "\">
                                     <input type='hidden' name='cardFlipped' value='" . (($i * $gridWidth) + $j) . "'>
                                     <input type='hidden' name='firstFlipped' value='" . $firstFlipped . "'>
                                     <input type='image' alt=\"submit\" src='../images/GameDesign/backside_of_card.png'>
                                   </form></td>";
+                        }
                     }else{
                         echo "    <td><img src='../images/GameDesign/backside_of_card.png' class='card'></td>";
                     }
@@ -185,6 +228,8 @@
                                             htmlspecialchars(serialize($deck)) . "\">
                                         <input type='hidden' name='firstFlipped' value='-1'>
                                         <input type='hidden' name='cardFlipped' value='-1'>
+                                        <input type='hidden' name='flipBack1' value='$firstFlipped'>
+                                        <input type='hidden' name='flipBack2' value='" . $_REQUEST["cardFlipped"] . "'>
                                         <input type='submit' value='Continue'>
                                     </form>";
             }else{
