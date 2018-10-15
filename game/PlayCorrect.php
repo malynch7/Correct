@@ -50,6 +50,7 @@
             }
         }
 
+        //initialize game if none exists
         if (!isset($_REQUEST["cards"])){
 
             //create card deck
@@ -66,7 +67,7 @@
             }
             shuffle($deck);
 
-            //present new game button
+            //present new game button and create deck
             echo "
                 <tr>
                     <td>
@@ -76,13 +77,17 @@
                             <input type='hidden' name='firstFlipped' value='-1'>
                             <input type='hidden' name='cardFlipped' value='-1'>
                             <input type=\"submit\" value=\"Play Now!\">
+                        </form>            
+                        <br><br>
+                        <form action=\"../cardsetform.html\">
+                            <input type=\"submit\" value=\"Create A New Deck\" />
                         </form>
                    </td>
                 </tr>
                 ";
-        }else{
 
-            //gameplay loop
+        //primary game loop
+        }else{
 
             $deck = unserialize($_REQUEST["cards"]);
             $matchMade = 0;
@@ -102,7 +107,6 @@
                     $matchMade = 2;
                     $deck[$_REQUEST["cardFlipped"]]->flipped = true;
                 }
-
             }
 
             //Calculate score
@@ -125,7 +129,7 @@
                 for($j = 0; $j < $gridWidth; $j++){
                     if($deck[($i * $gridWidth) + $j]->flipped == true){
 
-                        //flip animation
+                        //apply flip animation for last card flipped
                         if((($i * $gridWidth) + $j) == $_REQUEST["cardFlipped"] ){
                             echo "<td>
                             <div class=\"flipContainer\">
@@ -143,9 +147,10 @@
                             echo "    <td><img src='" . $deck[(($i * $gridWidth) + $j)]->face ."' class='card'></td>";
                         }
 
+                    // if 2 cards have not yet been selected
                     }elseif($matchMade == 0){
 
-                        //unflip mismatches
+                        //apply unflip animation to mismatches
                         if(isset($_REQUEST["flipBack1"]) && ($_REQUEST["flipBack1"] == (($i * $gridWidth) + $j) ||
                                 (($i * $gridWidth) + $j) == $_REQUEST["flipBack2"])){
                             echo "<td>
@@ -167,6 +172,8 @@
                                     </div>
                                 </div>
                             </td>";
+
+                        //display selectable cards as forms
                         }else{
                             echo "<td><form class=\"card\"method=\"post\" action=\"" .
                                 htmlspecialchars($_SERVER[PHP_SELF]) . "\">
@@ -177,6 +184,8 @@
                                     <input type='image' alt=\"submit\" src='../images/GameDesign/backside_of_card.png'>
                                   </form></td>";
                         }
+
+                    //if match has been attempted, render cards unselectable
                     }else{
                         echo "    <td><img src='../images/GameDesign/backside_of_card.png' class='card'></td>";
                     }
@@ -191,10 +200,10 @@
                                     <br>
                                     <h2 style='font-family: \"Courier New\"; color: #e84539;' class='center'>Score: $score/$numberOfCards</h2>";
 
-           //win condition
+           //check win condition
             if($score == $numberOfCards){
                 echo "               <br><br>
-                                     <p class='center'>You Have Won!</p>
+                                     <h3 class='center'>You Have Won!</h3>
                                      <br>
                                      <form class=\"center\" method=\"post\" action=\"" .
                                         htmlspecialchars($_SERVER[PHP_SELF]) . "\">
@@ -232,9 +241,11 @@
                                         <input type='hidden' name='flipBack2' value='" . $_REQUEST["cardFlipped"] . "'>
                                         <input type='submit' value='Continue'>
                                     </form>";
+
+            //prompt to select a card
             }else{
                 echo "              <br><br>
-                                    <p class='center'>Select A Card</p>";
+                                    <p class='center'>Select 2 Cards</p>";
             }
         }
     ?>
