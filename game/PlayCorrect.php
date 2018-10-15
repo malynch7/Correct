@@ -28,6 +28,7 @@
     </tr>
     <?php
 
+        $gameTimer = 120;
         $gridHeight = 3;
         $gridWidth = 4;
         $numberOfCards = $gridHeight * $gridWidth;
@@ -67,7 +68,7 @@
             }
             shuffle($deck);
 
-            //present new game button and create deck
+            //present new game button and create deck button
             echo "
                 <tr>
                     <td>
@@ -92,6 +93,14 @@
             $deck = unserialize($_REQUEST["cards"]);
             $matchMade = 0;
             $firstFlipped = $_REQUEST["firstFlipped"];
+
+            //calculate time remaining
+            if(isset($_REQUEST["startTime"])){
+                $startTime = $_REQUEST["startTime"];
+            }else{
+                $startTime = time();
+            }
+            $timeRemaining = $gameTimer - (time() - $startTime);
 
             //check for match
             if($_REQUEST["cardFlipped"] != -1){
@@ -166,6 +175,7 @@
                                                  . "\">
                                                  <input type='hidden' name='cardFlipped' value='" . (($i * $gridWidth) + $j) . "'>
                                                 <input type='hidden' name='firstFlipped' value='" . $firstFlipped . "'>
+                                                <input type='hidden' name='startTime' value='$startTime'>
                                                 <input type='image' alt=\"submit\" src='../images/GameDesign/backside_of_card.png'>
                                             </form>
                                         </div>
@@ -180,7 +190,8 @@
                                     <input type=\"hidden\" name=\"cards\" value=\"" . htmlspecialchars(serialize($deck))
                                     . "\">
                                     <input type='hidden' name='cardFlipped' value='" . (($i * $gridWidth) + $j) . "'>
-                                    <input type='hidden' name='firstFlipped' value='" . $firstFlipped . "'>
+                                    <input type='hidden' name='firstFlipped' value='$firstFlipped'>
+                                    <input type='hidden' name='startTime' value='$startTime'>
                                     <input type='image' alt=\"submit\" src='../images/GameDesign/backside_of_card.png'>
                                   </form></td>";
                         }
@@ -193,15 +204,30 @@
                 echo"        </tr>";
             }
 
+            //display time remaining
+            echo "              </table>
+                            </div>
+                            <div class='column2'>
+                                <br><br>
+                                <h3 class='center'>Time Remaining: $timeRemaining s</h3>";
+
             //display score
-            echo "          </table>
-                                </div>
-                                <div class='column2'>
+            echo "
                                     <br>
                                     <h2 style='font-family: \"Courier New\"; color: #e84539;' class='center'>Score: $score/$numberOfCards</h2>";
 
-           //check win condition
-            if($score == $numberOfCards){
+            //check timer
+            if($timeRemaining <= 0){
+                echo "               <br><br>
+                                     <h3 class='center'>You Have Lost!</h3>
+                                     <br>
+                                     <form class=\"center\" method=\"post\" action=\"" .
+                                         htmlspecialchars($_SERVER[PHP_SELF]) . "\">
+                                        <input type='submit' value='Play Again'>
+                                      </form>";
+
+            //check win condition
+            }elseif($score == $numberOfCards){
                 echo "               <br><br>
                                      <h3 class='center'>You Have Won!</h3>
                                      <br>
@@ -221,6 +247,7 @@
                                             htmlspecialchars(serialize($deck)) . "\">
                                         <input type='hidden' name='firstFlipped' value='-1'>
                                         <input type='hidden' name='cardFlipped' value='-1'>
+                                        <input type='hidden' name='startTime' value='$startTime'>
                                         <input type='submit' value='Continue'>
                                     </form>";
 
@@ -237,6 +264,7 @@
                                             htmlspecialchars(serialize($deck)) . "\">
                                         <input type='hidden' name='firstFlipped' value='-1'>
                                         <input type='hidden' name='cardFlipped' value='-1'>
+                                        <input type='hidden' name='startTime' value='$startTime'>
                                         <input type='hidden' name='flipBack1' value='$firstFlipped'>
                                         <input type='hidden' name='flipBack2' value='" . $_REQUEST["cardFlipped"] . "'>
                                         <input type='submit' value='Continue'>
@@ -249,6 +277,7 @@
             }
         }
     ?>
+
                 </div>
             </div>
         </table>
