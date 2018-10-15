@@ -54,6 +54,9 @@
         //initialize game if none exists
         if (!isset($_REQUEST["cards"])){
 
+            $leaderboard = array ("jim@domain.com"=>102,"stan@domain.com"=>99,"pam@domain.com"=>98,
+                "dan@domain.com"=>92,"sue@domain.com"=>92, );
+
             //create card deck
             $deck = array();
             $letter;
@@ -67,6 +70,42 @@
                     ".png", intdiv($i , 2)));
             }
             shuffle($deck);
+
+            //display greeting
+            if(isset($_COOKIE["member_login"])){
+                echo "
+                <tr>
+                    <td>
+                        <br>
+                        <p>Welcome, " . $_COOKIE["admin"] . "</p>
+                   </td>
+                </tr>
+                ";
+            }
+
+            //display leaderboard
+            echo "
+                <tr>
+                    <td>
+                        <table id='leaderboard'>
+                            <tr>
+                                <td colspan='2'><h3>Leaderboard</h3></td>                                
+                            </tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Time Remaining</th>
+                            </tr>";
+            foreach($leaderboard as $key=>$value){
+                echo "      <tr>
+                                <td>$key</td>
+                                <td>$value s</td> 
+                            </tr>";
+            }
+            echo"
+                     </table>  
+                   </td>
+                </tr>
+                ";
 
             //present new game button and create deck button
             echo "
