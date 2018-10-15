@@ -63,12 +63,10 @@ echo "both true".$Both_true;
                                 }else{
 
                                 }
+                                header("game/PlayCorrect.php");
                                 $error = "Not success";
                                 $success = "Welcome! ";
-                                    echo '<script language="javascript" type="text/javascript"> ';
-                                    echo 'alert("message successfully Inserted")';//msg
-                                    header("test.php");
-                                    echo '</script>';
+
                                     $User_true=0;
                                     $Pass_true=0;
                                     $Both_true=0;
@@ -87,8 +85,24 @@ echo "both true".$Both_true;
 
 
                 <div class="CorrectLogin">
-                <img src="PhotoIcon" class="IconMain">
+                <img src="/images/PhotoIcon" class="IconMain">
                 <h1> Connect Login </h1>
+                <table id="mainframe">
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><a class="active" href="Correct.html">Home</a></li>
+                                <li><a href="Login.php">Play</a></li>
+                                <li><a href="howtoplay.html">How to play</a></li>
+                                <li><a href="youtube.html">YouTube Video</a>
+                                <li><a href="aboutcontributors.html">About Contributors</a></li>
+                                <li class="liclass"> <a href="https://github.com/malynch7/Web-Programming-Project-1">GitHub Repository</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+
+
                 <form method="post">
                     <p>Username: </p>
                     <p class="Usererror"><?php echo "<font color='red'>$Usererror</font>";
