@@ -15,7 +15,8 @@
     <?php
         $queErr = $ansErr = "";
         $card1q = $card1a = $card2q = $card2a = $card3q = $card3a = $card4q = $card4a = $card5q = $card5a = $card6q = $card6a = "";   
-        
+        $successful = "Submitted Successfully ";
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (empty($_POST["card1q"])) {
                 $queErr = "Question is required";
@@ -153,7 +154,15 @@
         <br><br>
             <input type="submit" name="submit" value="Submit"> 
             <input type="reset" value="Reset">
-        </form> 
-    </body>
+        <br><br>
+        </form>
 
+        <?php
+        if (count($_POST)>0) {
+        echo $successful;
+        echo '<a href="game/PlayCorrect.php">Play Now</a>';
+        }
+        ?>
+
+    </body>
 </html>
