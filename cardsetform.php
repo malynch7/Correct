@@ -8,7 +8,6 @@
             color: #FF0000;
         }
     </style>
-
     </head>
 
     <body>
@@ -98,78 +97,63 @@
                 return $data;
               }
         ?>
+
+<table id="mainframe">
+        <tr>
+        <td>
+            <ul>
+                <li><a href="Correct.html">Home</a></li>
+                <li><a href="game/PlayCorrect.php">Play</a></li>
+                <li><a href="howtoplay.html">How to play</a></li>
+                <li><a href="youtube.html">YouTube Video</a></li>
+                <li><a href="aboutcontributors.html">About Contributors</a></li>
+				<li class="liclass"> <a href="https://github.com/malynch7/Web-Programming-Project-2">GitHub Repository</a></li>
+            </ul>
+        </td>
+    </tr>
+            </table>
+
       <h1>Make Your Own Custom Card Set</h1>
-      <p><span class="error">* required field</span></p>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
-        Card1q: <input type="text" name="card1q" size="100" required>
+        Card 1 Question: <input type="text" name="card1q" size="100" required>
         <br><br>
 
-        Card1a: <input type="text" name="card1a" size="100" required>
+        Card 1 Answer:  &nbsp; <input type="text" name="card1a" size="100" required>
         <br><br>
 
-        Card2q: <input type="text" name="card2q" size="100" required>
+        Card 2 Question: <input type="text" name="card2q" size="100" required>
         <br><br>
 
-        Card2a: <input type="text" name="card2a" size="100" required>
+        Card 2 Answer: &nbsp;  <input type="text" name="card2a" size="100" required>
         <br><br>
 
-        Card3q: <input type="text" name="card3q" size="100" required>
+        Card 3 Question: <input type="text" name="card3q" size="100" required>
         <br><br>
 
-        Card3a: <input type="text" name="card3a" size="100" required>
+        Card 3 Answer: &nbsp;  <input type="text" name="card3a" size="100" required>
         <br><br>
 
-        Card4q: <input type="text" name="card4q" size="100" required>
+        Card 4 Question: <input type="text" name="card4q" size="100" required>
         <br><br>
 
-        Card4a: <input type="text" name="card4a" size="100" required>
+        Card 4 Answer:  &nbsp; <input type="text" name="card4a" size="100" required>
         <br><br>
 
-        Card5q: <input type="text" name="card5q" size="100" required>
+        Card 5 Question: <input type="text" name="card5q" size="100" required>
         <br><br>
 
-        Card5a: <input type="text" name="card5a" size="100" required>
+        Card 5 Answer: &nbsp;  <input type="text" name="card5a" size="100" required>
         <br><br>
 
-        Card6q: <input type="text" name="card6q" size="100" required>
+        Card 6 Question: <input type="text" name="card6q" size="100" required>
         <br><br>
 
-        Card6a: <input type="text" name="card6a" size="100" required>
+        Card 6 Answer: &nbsp;  <input type="text" name="card6a" size="100" required>
         <br><br>
-            
             <input type="submit" name="submit" value="Submit"> 
             <input type="reset" value="Reset">
-            <input type="submit" value="Back">
-        </form>
-
-        <?php
-        echo "<h2>Your Input:</h2>";
-        echo $card1q;
-        echo "<br>";
-        echo $card1a;
-        echo "<br>";
-        echo $card2q;
-        echo "<br>";
-        echo $card2a;
-        echo "<br>";
-        echo $card3q;
-        echo "<br>";
-        echo $card3a;
-        echo "<br>";
-        echo $card4q;
-        echo "<br>";
-        echo $card4a;
-        echo "<br>";
-        echo $card5q;
-        echo "<br>";
-        echo $card5a;
-        echo "<br>";
-        echo $card6q;
-        echo "<br>";
-        echo $card6a;
-        echo "<br>";
-        ?>  
+        </form> 
     </body>
 
 </html>
