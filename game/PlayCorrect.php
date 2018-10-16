@@ -77,7 +77,7 @@
                 <tr>
                     <td>
                         <br>
-                        <p>Welcome, " . $_COOKIE["member_login"] . "</p>
+                        <h4>Welcome, " . $_COOKIE["member_login"] . "!</h4>
                    </td>
                 </tr>
                 ";

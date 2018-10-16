@@ -51,9 +51,10 @@
 }
            if($User_true==1 ){
                             if($Both_true==1){
+                                setcookie("member_login",$uname,time()+(10*365*24*60*60));
+                                setcookie("member_password",$pass,time()+(10*365*24*60*60));
                                 if(!empty($_POST["remember"])){
-                                    setcookie("member_login",$uname,time()+(10*365*24*60*60));
-                                    setcookie("member_password",$pass,time()+(10*365*24*60*60));
+
 
                                 }else{
 
