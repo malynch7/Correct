@@ -13,6 +13,7 @@
                     <input type="text" name="username" placeholder="Please enter Username" required>
                       <input type="submit" name="submit" value="Enter">
                      </form>
+                      <h1><a class="color" href="Login.php">Home</a></h1>
                     </div>
 
 

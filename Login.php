@@ -46,14 +46,9 @@
                 $Both_true=1;
             }
         }
-
-
     }
     echo "\n";
 }
-
-echo "both true".$Both_true;
-
            if($User_true==1 ){
                             if($Both_true==1){
                                 if(!empty($_POST["remember"])){
@@ -63,10 +58,11 @@ echo "both true".$Both_true;
                                 }else{
 
                                 }
-                                header("game/PlayCorrect.php");
                                 $error = "Not success";
                                 $success = "Welcome! ";
 
+                                    header("Location:game\PlayConnect.php");
+                                    echo '</script>';
                                     $User_true=0;
                                     $Pass_true=0;
                                     $Both_true=0;
@@ -80,29 +76,24 @@ echo "both true".$Both_true;
 
                         }
                     }
-
             ?>
-
-
-                <div class="CorrectLogin">
-                <img src="/images/PhotoIcon" class="IconMain">
+                    <table id="mainframe">
+        <tr>
+            <td>
+                <ul>
+                    <li><a class="active" href="Correct.html">Home</a></li>
+                    <li><a href="Login.php">Play</a></li>
+                    <li><a href="howtoplay.html">How to play</a></li>
+                    <li><a href="youtube.html">YouTube Video</a>
+                    <li><a href="aboutcontributors.html">About Contributors</a></li>
+                    <li class="liclass"> <a href="https://github.com/malynch7/Web-Programming-Project-1">GitHub Repository</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+             <div class="CorrectLogin">
+                <img src="images/PhotoIcon" class="IconMain">
                 <h1> Connect Login </h1>
-                <table id="mainframe">
-                    <tr>
-                        <td>
-                            <ul>
-                                <li><a class="active" href="Correct.html">Home</a></li>
-                                <li><a href="Login.php">Play</a></li>
-                                <li><a href="howtoplay.html">How to play</a></li>
-                                <li><a href="youtube.html">YouTube Video</a>
-                                <li><a href="aboutcontributors.html">About Contributors</a></li>
-                                <li class="liclass"> <a href="https://github.com/malynch7/Web-Programming-Project-1">GitHub Repository</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-
-
                 <form method="post">
                     <p>Username: </p>
                     <p class="Usererror"><?php echo "<font color='red'>$Usererror</font>";
@@ -115,8 +106,8 @@ echo "both true".$Both_true;
                     <input type="submit" name="submit" value="Login">
                      <label for="remember-me">Remember me:</label>
                     <input type="checkbox" class="remember" <?php if(isset($_COOKIE["member_login"])) { ?> checked <?php } ?> name="remember" />
-                    <a href="ForgotPassword.php">Forgot Password</a><br>
-                    <a href="ForgotUsername.php">Forgot Username</a><br>
+                    <a class="Forgot" href="ForgotPassword.php">Forgot Password</a><br>
+                    <a class ="Forgot" href="ForgotUsername.php">Forgot Username</a><br>
                         </form>
                     </div>
         </body>

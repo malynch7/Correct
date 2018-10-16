@@ -6,12 +6,41 @@ body{
     font-family:  "Courier New";
     background-color: lightgrey;
 }
+#mainframe{
+    border: 0;
+    width: 85%;
+    margin-left:auto;
+    margin-right:auto;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
 
 .CorrectLogin{
     padding: 5px;
     width: 320px;
     height: 420px;
-    background: #000;
+    background: #333;
     color:#fff;
     top:50%;
     left: 50%;
@@ -28,6 +57,7 @@ body{
     left: calc(50%,-50px)
 }
 h1{
+    color:white;
     margin: 0;
     padding: 0 0 20px;
     text-align: right;
@@ -57,16 +87,19 @@ h1{
     border:none;
     outline:none;
     height:40px;
-    background:#800000;
+    background:#B22222;
     color:#fff;
     font-size:18px;
 }
 p.Usererror{
     color:red;
 }
-
-
-
+a.Forgot{
+    color:#B22222;
+}
+a.color {
+    color: white;
+}
 
 
 
