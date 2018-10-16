@@ -54,7 +54,7 @@ li a:hover:not(.active) {
     border-radius: 50%;
     position: absolute;
     top: -50px;
-    left: calc(50%,-50px)
+    left: calc(50%,-50px);
 }
 h1{
     color:white;

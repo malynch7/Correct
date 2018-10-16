@@ -15,7 +15,7 @@
                 $Usererror = "";
                 $Passerror = "";
                 $success = "";
-                    if(isset($_POST['submit'])){
+                    if(isset($_POST['username'])){
                                     $User_true=0;
                                     $Pass_true=0;
                                     $Both_true=0;
@@ -61,7 +61,7 @@
                                 $error = "Not success";
                                 $success = "Welcome! ";
 
-                                    header("Location:game\PlayConnect.php");
+                                    header("Location:game\PlayCorrect.php");
                                     echo '</script>';
                                     $User_true=0;
                                     $Pass_true=0;
@@ -92,7 +92,7 @@
         </tr>
         <tr>
              <div class="CorrectLogin">
-                <img src="images/PhotoIcon" class="IconMain">
+                <img src="images/PhotoIcon.png" class="IconMain">
                 <h1> Connect Login </h1>
                 <form method="post">
                     <p>Username: </p>

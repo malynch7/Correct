@@ -15,7 +15,7 @@
         <td>
             <ul>
                 <li><a href="../Correct.html">Home</a></li>
-                <li><a class="active" href="game/PlayCorrect.php">Play</a></li>
+                <li><a class="active" href="../Login.php">Play</a></li>
                 <li><a href="../howtoplay.html">How to play</a></li>
                 <li><a href="../youtube.html">YouTube Video</a>
                 <li><a href="../aboutcontributors.html">About Contributors</a></li>
@@ -77,7 +77,7 @@
                 <tr>
                     <td>
                         <br>
-                        <p>Welcome, " . $_COOKIE["admin"] . "</p>
+                        <p>Welcome, " . $_COOKIE["member_login"] . "</p>
                    </td>
                 </tr>
                 ";
@@ -119,7 +119,7 @@
                             <input type=\"submit\" value=\"Play Now!\">
                         </form>            
                         <br><br>
-                        <form action=\"../cardsetform.html\">
+                        <form action=\"../cardsetform.php\">
                             <input type=\"submit\" value=\"Create A New Deck\" />
                         </form>
                    </td>

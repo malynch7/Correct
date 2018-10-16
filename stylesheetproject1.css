@@ -97,10 +97,10 @@ li a:hover:not(.active) {
 .column {
     padding-top: 20px;
     float: left;
-    width: 40%;
+    width: 25%;
     text-align: center;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
 }
 
 .row:after {
