@@ -109,6 +109,13 @@
                     <a class="Forgot" href="ForgotPassword.php">Forgot Password</a><br>
                     <a class ="Forgot" href="ForgotUsername.php">Forgot Username</a><br>
                         </form>
-                    </div>
+                 <p class="center2">Test Input</p>
+                 <p class="center2">User: admin</p>
+                 <p class="center2">Password: password1234</p>
+             </div>
+        </tr>
+
+                    </table>
+
         </body>
     </html>
